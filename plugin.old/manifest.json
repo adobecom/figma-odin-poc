@@ -1,0 +1,13 @@
+{
+  "name": "Figma to Odin plugin (old)",
+  "id": "figma-to-odin-plugin-old",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "documentAccess": "dynamic-page",
+  "editorType": ["figma", "dev"],
+  "capabilities": ["inspect"],
+  "networkAccess": {
+    "allowedDomains": ["https://local.adobe.com"],
+    "devAllowedDomains": ["https://local.adobe.com"]
+  }
+}

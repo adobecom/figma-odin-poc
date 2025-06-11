@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Figmaodin Plugin</title>
+  <script type="module" src="dist/swc.js"></script>
+  <script type="module" src="src/app/figmaodin-app.js"></script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: var(--figma-color-bg, #f0f0f0);
+    }
+    sp-theme {
+      display: block;
+      background-color: var(--spectrum-global-color-gray-100);
+      display: contents;
+    }
+
+    html, body, figmaodin-app {
+      height: calc(100vh - 60px);
+    }
+
+  </style>
+</head>
+<body>
+  <sp-theme color="light" scale="medium"> 
+    <figmaodin-app></figmaodin-app>
+  </sp-theme>
+</body>
+</html> 

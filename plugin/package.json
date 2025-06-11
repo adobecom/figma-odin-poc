@@ -1,0 +1,23 @@
+{
+  "name": "figmaodin-plugin",
+  "version": "0.1.0",
+  "description": "Figma plugin using Lit and Spectrum Web Components",
+  "scripts": {
+    "build:swc": "esbuild src/swc.js --bundle --outfile=dist/swc.js --format=esm --platform=browser",
+    "build:code": "esbuild code.js --bundle --outfile=dist/plugin.js --format=esm --platform=browser",
+    "build": "npm run build:swc && npm run build:code",
+    "code:watch": "esbuild code.js --bundle --outfile=dist/plugin.js --platform=browser --watch"
+  },
+  "devDependencies": {
+    "@spectrum-web-components/button": "^1.6.0",
+    "@spectrum-web-components/menu": "^1.6.0",
+    "@spectrum-web-components/picker": "^1.6.0",
+    "@spectrum-web-components/textfield": "^1.6.0",
+    "@spectrum-web-components/theme": "^1.6.0",
+    "esbuild": "^0.20.0",
+    "lit": "^3.1.4"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1"
+  }
+}

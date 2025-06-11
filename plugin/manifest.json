@@ -1,0 +1,14 @@
+{
+  "name": "Figma to Odin plugin",
+  "id": "FIGMAODIN_PLUGIN_POC",
+  "api": "1.0.0",
+  "main": "dist/plugin.js",
+  "documentAccess": "dynamic-page",
+  "editorType": ["figma", "dev"],
+  "capabilities": ["inspect"],
+  "networkAccess": {
+    "allowedDomains": ["https://local.adobe.com"],
+    "reasoning": "Plugin loads UI from localhost development server for testing and development.",
+    "devAllowedDomains": ["https://local.adobe.com"]
+  }
+}

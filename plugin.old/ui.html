@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="module" src="src/ui.js"></script>
+  <style>
+    .alert {
+      padding: 20px;
+      margin-bottom: 15px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+    }
+
+    .alert-success {
+      color: #3c763d;
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+    }
+
+    .alert-error {
+      color: #a94442;
+      background-color: #f2dede;
+      border-color: #ebccd1;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    h2 {
+      text-align: center;
+    }
+
+    h2, h3 {
+      color: #333;
+    }
+
+    button {
+      margin: 10px 0;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    body > div {
+      margin-bottom: 20px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 800px; /* Adjust this value to your liking */
+    }
+
+    select {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .action-buttons {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: left;
+    }
+
+    .action-buttons button {
+      margin-right: 10px;
+    }
+  </style>
+
+</head>
+<body>
+<div id="tokenSection" style="display: none;">
+  <h3>Access Token</h3>
+  <p>Please enter your AEM Access Token:</p>
+  <textarea id="tokenInput" rows="4" style="width: 90%;"></textarea>
+  <button id="saveTokenButton">Save Token</button>
+</div>
+
+<h2>AEM Content Manager</h2>
+
+<div id="alert-success" class="alert alert-success" hidden>
+  <span id="success-message"></span>
+</div>
+
+<div id="alert-error" class="alert alert-error" hidden>
+  <span id="error-message"></span>
+</div>
+
+<!-- <div>
+  <h3>Debug</h3>
+  <div class="action-buttons">
+    <button id="showJson">Show Json</button>
+    <button id="showNode">Show Node</button>
+    <button id="deleteMeta">Delete Meta</button>
+    <button id="uploadImage">Upload Image</button>
+  </div>
+</div> -->
+
+<div>
+  <h3>Content Fragment</h3>
+  <p>Name: <input id="cfName" type="text" value=""></p>
+  <div class="action-buttons">
+    <button id="createCF" title="Create a new content fragment based on the selected node in Figma">Create</button>
+    <button id="modifyCF" title="Modify the content fragment based on the selected node in Figma">Modify</button>
+    <button id="deleteCF" title="Delete the content fragment based on the selected node in Figma">Delete</button>
+  </div>
+</div>
+
+<div>
+  <h3>Content Fragment Models</h3>
+  <select id="cfmList">
+    <!-- The options will be rendered here -->
+    <option value="">Select an option</option>
+    <option value="createCFM">Create Content Fragment Model</option>
+    <!-- Add more options as needed -->
+  </select>
+</div>
+
+<!-- Hidden panel for creating a new content fragment model -->
+<div id="cfmCreationPanel" style="display: none;">
+  <h3>Create Content Fragment Model</h3>
+  <p>Name: <input id="cfmName" type="text" value=""></p>
+  <button id="submitCFM" title="Create the content fragment model and return to the main panel">Create</button>
+</div>
+</body>
+</html>

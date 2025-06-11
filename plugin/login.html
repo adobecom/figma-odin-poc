@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Figmaodin Plugin Login</title>
+  <script>
+  const context = {
+    profile_filter: `{"findFirst":true,"fallbackToAA":true,"searchEntireCluster":true};isOwnedByOrg('3B962FB55F5F922E0A495C88@AdobeOrg')`,
+  };
+  window.adobeid = {
+    client_id: "figma-odin",
+    environment: "prod",
+    locale: "en_US",
+    redirect_uri: location.href.substring(
+      0,
+      location.href.length - location.hash.length
+    ),
+    scope:
+      "AdobeID,openid,additional_info.roles,read_organizations,account_cluster.read",
+    useLocalStorage: true,
+    authorize() {
+      const { expire, token } = window.adobeIMS?.getAccessToken() ?? {};
+      if (token && (expire?.valueOf() ?? 0) > Date.now()) return token;
+      window.adobeIMS?.signIn(context);
+    },
+    onError(error) {
+      console.error("[M@S Studio] IMS error: ", error);
+    },
+    onReady() {
+      adobeIMS
+        .validateToken()
+        .catch((e) => {
+          console.error("[M@S Studio] failed to refresh IMS token: ", e);
+          console.info("[M@S Studio] Signing in");
+          adobeIMS.signIn(context);
+        }).then(() => {
+          window.postMessage({
+            type: "token-validated",
+            token: window.adobeIMS?.getAccessToken()?.token,
+          }, "*");
+        });
+    },
+  };
+  </script>
+    <script src="https://www.adobe.com/libs/deps/imslib.min.js"></script>
+</head>
+<body>
+  <button id="copyTokenBtn">Copy Access Token</button>
+
+  <script>
+    document.getElementById("copyTokenBtn").addEventListener("click", () => {
+      const token = window.adobeIMS?.getAccessToken()?.token;
+      if (token) {
+        navigator.clipboard.writeText(token).then(() => {
+          window.close();
+        }).catch(err => {
+          console.error("Failed to copy token: ", err);
+          alert("Failed to copy token. See console for details.");
+        });
+      } else {
+        alert("Access token not available.");
+      }
+    });
+  </script>
+</body>
+</html> 
