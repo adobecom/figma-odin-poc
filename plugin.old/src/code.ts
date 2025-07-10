@@ -177,7 +177,7 @@ figma.ui.onmessage = (msg: PluginMessage) => {
   }
 };
 
-const LOCAL_UI_URL = "https://local.adobe.com/plugin.old/ui.html"; // Ensure this points to your HTML file
+const LOCAL_UI_URL = "https://main--figma-odin-poc--adobecom.aem.live/plugin.old/ui.html"; // Ensure this points to your HTML file
 
 console.log(`🚀 Loading UI from localhost: ${LOCAL_UI_URL}`);
 

@@ -7,7 +7,13 @@
   "editorType": ["figma", "dev"],
   "capabilities": ["inspect"],
   "networkAccess": {
-    "allowedDomains": ["https://local.adobe.com"],
-    "devAllowedDomains": ["https://local.adobe.com"]
+    "allowedDomains": [
+      "https://local.adobe.com",
+      "https://main--figma-odin-poc--adobecom.aem.live"
+    ],
+    "devAllowedDomains": [
+      "https://local.adobe.com",
+      "https://main--figma-odin-poc--adobecom.aem.live"
+    ]
   }
 }

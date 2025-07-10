@@ -116,7 +116,7 @@
             "multiple": field.multiple
           };
         }),
-        "configurationFolder": "/conf/sandbox",
+        "configurationFolder": "/conf/sandbox/figmapoc",
         "description": `${this.name} model generated from Figma`,
         "locked": "false",
         "status": "enabled"
@@ -408,7 +408,7 @@
       }
     }
   };
-  var LOCAL_UI_URL = "https://local.adobe.com/plugin.old/ui.html";
+  var LOCAL_UI_URL = "https://main--figma-odin-poc--adobecom.aem.live/plugin.old/ui.html";
   console.log(`\u{1F680} Loading UI from localhost: ${LOCAL_UI_URL}`);
   figma.showUI(`<script>window.location.href = "${LOCAL_UI_URL}"<\/script>`, {
     width: 450,

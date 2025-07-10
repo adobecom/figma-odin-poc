@@ -68,7 +68,7 @@ async function createCfModel(altNodeJson, modelName) {
           }
           return fieldData;
         }),
-        configurationFolder: "/conf/sandbox",
+        configurationFolder: "/conf/sandbox/figmapoc",
         description: "Model generated from Figma",
         locked: "false",
         status: "enabled",
@@ -331,7 +331,7 @@ async function loadModelsInUI() {
 
   try {
     const response = await fetch(
-      `${AemURL}models?enabledForFolder=%2Fcontent%2Fdam%2Fsandbox`,
+      `${AemURL}models?enabledForFolder=%2Fcontent%2Fdam%2Fsandbox%2Ffigmapoc`,
       { headers: getHeaders(), method: "GET" }
     );
 

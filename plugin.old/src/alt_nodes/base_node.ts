@@ -141,7 +141,7 @@ class AltBaseNode {
                     "multiple": field.multiple
                 };
             }),
-            "configurationFolder": "/conf/sandbox",
+            "configurationFolder": "/conf/sandbox/figmapoc",
             "description": `${this.name} model generated from Figma`,
             "locked": "false",
             "status": "enabled"
