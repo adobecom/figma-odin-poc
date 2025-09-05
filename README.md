@@ -25,10 +25,16 @@ npm i
 npm run lint
 ```
 
+Requirements:
+- Figma Desktop
+
+
 ## Local development
 
-1. Create a new repository based on the `aem-boilerplate` template and add a mountpoint in the `fstab.yaml`
-1. Add the [AEM Code Sync GitHub App](https://github.com/apps/aem-code-sync) to the repository
-1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/aem-cli`
-1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
-1. Open the `{repo}` directory in your favorite IDE and start coding :)
+1. add `127.0.0.1	localhost local.adobe.com` to your `/etc/hosts` file
+2. generate the certificates for the local development server
+- local.adobe.com.pem
+- local.adobe.com-key.pem
+3. start the server with `npm start`
+4. run `sudo socat TCP-LISTEN:443,fork TCP:localhost:3000`  in a shell.
+5. Install the plugin in Figma using the manifest at `plugin/manifest.json`
